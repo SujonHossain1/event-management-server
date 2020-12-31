@@ -8,20 +8,22 @@ require('dotenv').config();
 // App Config
 const app = express();
 
-// middlewares
-const middlewares = [
+// middleware
+const middleware = [
     morgan('dev'),
     cors(),
     express.urlencoded({ limit: '15mb', extended: true }),
     express.json({ limit: '15mb' })
 ]
-app.use(middlewares);
+app.use(middleware);
 
 // Import Routers 
 const blogRouter = require('./routes/blogRouter');
+const userRouter = require('./routes/userRouter');
 
 // App Routes
 app.use('/api', blogRouter);
+app.use('/api', userRouter);
 
 
 // Database Connection
