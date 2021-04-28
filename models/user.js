@@ -5,37 +5,30 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true,
-        minLength: 2
+        minLength: 2,
     },
-    
+
     email: {
         type: String,
         required: true,
         trim: true,
-        unique: true
+        unique: true,
     },
     password: {
         type: String,
         required: true,
-        minlength: 6
+        minlength: 6,
     },
     profileImage: {
-        type: String
-    },
-    phone: {
-        type: Number,
-        trim: true,
-        minlength: 6
+        type: String,
     },
     address: {
         street: String,
         city: String,
-        zipCode: Number
+        zipCode: Number,
     },
     rememberMe: Boolean,
-
 });
 
 const UserModel = new mongoose.model('user', userSchema);
 module.exports = UserModel;
-
